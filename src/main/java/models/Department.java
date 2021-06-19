@@ -31,4 +31,5 @@ public class Department {
                 Objects.equals(name, that.name) &&
                 Objects.equals(description, that.description);
     }
+//    public static class
 }
