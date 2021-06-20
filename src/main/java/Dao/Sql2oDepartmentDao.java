@@ -7,6 +7,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.List;
 import java.util.stream.Collectors;
+//import interface DepartmentDao;
 
 public class Sql2oDepartmentDao implements DepartmentDao{
     private final Sql2o sql2o;
@@ -43,12 +44,13 @@ public class Sql2oDepartmentDao implements DepartmentDao{
        }
     }
 
-    @Override
+//    @Override
     public List<User> getDepartUserById(int id) {
         return userDao.getAllUsers().stream()
                 .filter(user -> user.getDepartId() == id)
                 .collect(Collectors.toList());
     }
+
 
     @Override
     public List<DepartNews> getDepartNewsById() {

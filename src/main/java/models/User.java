@@ -18,25 +18,27 @@ public class User {
     public int getId(){
         return id;
     }
-    public int setId(int id){
-        return id;
+    public void setId(int id){
+        this.id = id;
     }
     public String getName(){
         return name;
     }
 
-    public String setName(String name) {
-        return this.name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String setRole(String role) {
-        return this.role;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public void setPosition(String position) {
+        this.position = position;
     }
 
     public void setDepartId(int departId) {
+        this.departId = departId;
     }
 
     public int getDepartId() {
