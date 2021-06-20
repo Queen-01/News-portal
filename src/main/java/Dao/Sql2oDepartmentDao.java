@@ -6,12 +6,20 @@ import models.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Sql2oDepartmentDao implements DepartmentDao{
     private final Sql2o sql2o;
+    private final Sql2oUserDao userDao;
 
     public Sql2oDepartmentDao(Sql2o sql2o) {
         this.sql2o = sql2o;
+        this.userDao = new Sql2oUserDao(sql2o) {
+            @Override
+            public void update() {
+
+            }
+        };
     }
 
 //    @Override
@@ -36,8 +44,10 @@ public class Sql2oDepartmentDao implements DepartmentDao{
     }
 
     @Override
-    public List<User> getDepartUserById() {
-        return null;
+    public List<User> getDepartUserById(int id) {
+        return userDao.getAllUsers().stream()
+                .filter(user -> user.getDepartId() == id)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -57,6 +67,15 @@ public class Sql2oDepartmentDao implements DepartmentDao{
 
     @Override
     public void updateDepartment(Department department, String name, String description) {
+        String sql = "UPDATE user SET (name,description) = :name, :description WHERE id = :id;";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("name", name)
+                    .addParameter("description",description)
+                    .executeUpdate();
+            department.setName(name);
+            department.setDescription(description);
+        }
 
     }
 

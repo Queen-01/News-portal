@@ -2,7 +2,7 @@ package models;
 
 import java.util.Objects;
 
-public class Department {
+public class Department{
     public int id;
     public String name;
     public String description;
@@ -16,7 +16,7 @@ public class Department {
         return id;
     }
     public int setId(int id){
-        return this.id;
+        return id;
     }
     public String getName(){
         return name;
@@ -33,6 +33,14 @@ public class Department {
         return id == that.id &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(description, that.description);
+    }
+
+    public String setName(String name) {
+        return this.name;
+    }
+
+    public String setDescription(String description) {
+        return this.description;
     }
 //    public static class
 }
