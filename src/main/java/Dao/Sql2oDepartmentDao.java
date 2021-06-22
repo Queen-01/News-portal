@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 //import interface DepartmentDao;
 
-public class Sql2oDepartmentDao implements DepartmentDao{
+public abstract class Sql2oDepartmentDao implements DepartmentDao{
     private final Sql2o sql2o;
     private final Sql2oUserDao userDao;
 
@@ -17,7 +17,7 @@ public class Sql2oDepartmentDao implements DepartmentDao{
         this.sql2o = sql2o;
         this.userDao = new Sql2oUserDao(sql2o) {
             @Override
-            public void update() {
+            public void updateUser(User user, String name, String role, String position, int departId) {
 
             }
         };

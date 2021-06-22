@@ -11,7 +11,12 @@ public abstract class Sql2oUserDao implements UserDao {
 
     public Sql2oUserDao(Sql2o sql2o) {
         this.sql2o = sql2o;
-        this.departmentDao = new Sql2oDepartmentDao(sql2o);
+        this.departmentDao = new Sql2oDepartmentDao(sql2o) {
+            @Override
+            public List<User> getDepartUserById() {
+                return null;
+            }
+        };
     }
 
     //    @Override
@@ -46,7 +51,7 @@ public abstract class Sql2oUserDao implements UserDao {
         return null;
     }
 
-    @Override
+//    @Override
     public void update(User user,String name, String role, String position, int departId) {
         String sql = "UPDATE user SET (name,role,position,departId) = :name, :role, :position, :departId WHERE id = :id;";
         try (Connection con = sql2o.open()) {

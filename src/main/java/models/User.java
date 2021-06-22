@@ -6,6 +6,7 @@ public class User {
     public String role;
     public String position;
     public int departId;
+    private String content;
 
     public void setId(int id, String name, String role, String position, int departId) {
         this.id = id;
@@ -44,4 +45,5 @@ public class User {
     public int getDepartId() {
         return id;
     }
+
 }

@@ -8,12 +8,12 @@ import java.util.List;
 public interface NewsDao{
     List<News>getAllNews();
     List<News>getMainNews();
-    List<DepartNews>getDepartNews();
+    List<DepartNews> getDepartNews();
 
     void addMainNews(News news);
     void addDepartNews(DepartNews departNews);
 
-    News findMainNewsById(int id);
+    DepartNews findMainNewsById(int id);
     DepartNews findDepartNewsById(int id);
 
     void updateMainNews (News news,int userId, String content);
