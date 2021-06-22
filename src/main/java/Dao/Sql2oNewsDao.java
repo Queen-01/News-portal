@@ -8,6 +8,7 @@ import org.sql2o.Sql2o;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Sql2oNewsDao implements NewsDao {
     private final Sql2o sql2o;
@@ -164,4 +165,9 @@ public class Sql2oNewsDao implements NewsDao {
                     .executeUpdate();
         }
     }
+//    public void getDepartUsersById() {
+//        return UserDao.getAllUsers().stream()
+//                .filter(user -> user.getDepartId()==id )
+//                .collect(Collectors.toList());
+//    }
 }

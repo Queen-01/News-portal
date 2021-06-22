@@ -8,7 +8,7 @@ public class User {
     public int departId;
     private String content;
 
-    public void setId(int id, String name, String role, String position, int departId) {
+    public User (int id, String name, String role, String position, int departId) {
         this.id = id;
         this.name = name;
         this.role = role;
@@ -48,5 +48,9 @@ public class User {
 
     public String getPosition() {
         return position;
+    }
+
+    public String getRole() {
+        return role;
     }
 }

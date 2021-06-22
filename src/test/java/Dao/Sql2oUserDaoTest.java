@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class Sql2oUserDaoTest {
     private Connection con;
@@ -77,12 +76,33 @@ public class Sql2oUserDaoTest {
         userDao.addUser(testUser2);
 
         String ol_name = testUser1.getName();
+        String ol_role = testUser1.getRole();
         String ol_position = testUser1.getPosition();
         int ol_depart = testUser1.getDepartId();
-    }
 
+        userDao.updateUser(testUser1, "Queen Ong'eye", "Assistant", "CEO",1);
+        assertNotEquals(ol_name, testUser1.getName());
+        assertNotEquals(ol_role, testUser1.getRole());
+        assertNotEquals(ol_depart, testUser1.getDepartId());
+
+        assertEquals(ol_name, testUser1.getName());
+        assertEquals(ol_role, testUser1.getRole());
+        assertEquals(ol_position, testUser1.getPosition());
+        assertEquals(ol_depart, testUser1.getDepartId());
+    }
+    @Test
+    public void clearAllUsers_clearAllusers_True() throws Exception{
+        User testUser1 = setUpUser();
+        User testUser2 = setUpUser();
+
+        userDao.addUser(testUser1);
+        userDao.addUser(testUser2);
+        userDao.clearAll();
+
+        assertEquals(1, userDao.getAllUsers().size());
+    }
     private User setUpUser() {
-        return null;
+        return new User(1, "Alan Tiren", "Junior","Editor", 2);
     }
 
 }

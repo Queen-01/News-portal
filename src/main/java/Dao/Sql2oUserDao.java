@@ -3,6 +3,8 @@ package Dao;
 import models.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+
+import java.util.Collection;
 import java.util.List;
 
 public class Sql2oUserDao implements UserDao {
@@ -14,6 +16,7 @@ public class Sql2oUserDao implements UserDao {
         this.departmentDao = new Sql2oDepartmentDao(sql2o) {
             @Override
             public List<User> getDepartUserById() {
+
                 return null;
             }
         };
@@ -92,4 +95,10 @@ public class Sql2oUserDao implements UserDao {
             System.out.println(e);
         }
     }
+
+    @Override
+    public List getDepartUserById(int id) {
+        return null;
+    }
+
 }

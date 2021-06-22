@@ -2,6 +2,7 @@ package Dao;
 
 import models.User;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface UserDao {
@@ -13,4 +14,6 @@ public interface UserDao {
 
     void deleteById(int id);
     void clearAll();
+
+    List getDepartUserById(int id);
 }

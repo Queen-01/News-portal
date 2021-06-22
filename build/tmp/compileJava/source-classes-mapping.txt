@@ -8,15 +8,15 @@ models/User.java
  models.User
 models/DepartNews.java
  models.DepartNews
-Dao/Sql2oNewsDao.java
- Dao.Sql2oNewsDao
-models/Department.java
- models.Department
-Dao/NewsDao.java
- Dao.NewsDao
 Dao/Sql2oDepartmentDao.java
  Dao.Sql2oDepartmentDao
  Dao.Sql2oDepartmentDao$1
 Dao/Sql2oUserDao.java
  Dao.Sql2oUserDao
  Dao.Sql2oUserDao$1
+Dao/NewsDao.java
+ Dao.NewsDao
+models/Department.java
+ models.Department
+Dao/Sql2oNewsDao.java
+ Dao.Sql2oNewsDao

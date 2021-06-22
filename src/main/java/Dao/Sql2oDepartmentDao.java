@@ -5,6 +5,8 @@ import models.Department;
 import models.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 //import interface DepartmentDao;
@@ -90,4 +92,5 @@ public class Sql2oDepartmentDao implements DepartmentDao{
     public void clearAll() {
 
     }
+
 }
