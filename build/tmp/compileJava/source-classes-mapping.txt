@@ -2,6 +2,8 @@ Dao/UserDao.java
  Dao.UserDao
 models/News.java
  models.News
+App.java
+ App
 Dao/DepartmentDao.java
  Dao.DepartmentDao
 models/User.java
@@ -10,7 +12,6 @@ models/DepartNews.java
  models.DepartNews
 Dao/Sql2oDepartmentDao.java
  Dao.Sql2oDepartmentDao
- Dao.Sql2oDepartmentDao$1
 Dao/Sql2oUserDao.java
  Dao.Sql2oUserDao
  Dao.Sql2oUserDao$1

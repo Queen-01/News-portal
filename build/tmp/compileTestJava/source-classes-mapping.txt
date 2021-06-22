@@ -1,0 +1,7 @@
+Dao/Sql2oNewsDaoTest.java
+ Dao.Sql2oNewsDaoTest
+Dao/Sql2oUserDaoTest.java
+ Dao.Sql2oUserDaoTest
+Dao/Sql2oDepartmentDaoTest.java
+ Dao.Sql2oDepartmentDaoTest
+ Dao.Sql2oDepartmentDaoTest$1

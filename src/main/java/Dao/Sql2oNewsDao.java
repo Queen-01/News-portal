@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Sql2oNewsDao implements NewsDao {
+//    public static final String DEPARTMENT_NEWS = ;
     private final Sql2o sql2o;
     public static final String Main_news = "main";
     public static final String Depart_news = "depart";

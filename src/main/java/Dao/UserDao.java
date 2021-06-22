@@ -6,6 +6,8 @@ import java.util.Collection;
 import java.util.List;
 
 public interface UserDao {
+    List<User> getDepartUserById();
+
     List<User>getAllUsers();
     void addUser (User user);
     User findUserById(int id);
@@ -15,5 +17,5 @@ public interface UserDao {
     void deleteById(int id);
     void clearAll();
 
-    List getDepartUserById(int id);
+//    List getDepartUserById(int id);
 }

@@ -7,8 +7,12 @@ import models.User;
 import java.util.List;
 
 public interface DepartmentDao {
+    void updateUser(User user, String name, String role, String position, int departId);
+
+    void add(Department department);
+
     List<Department>getAllDepart();
-    List<User>getDepartUserById();
+//    List<User>getDepartUserById();
     List<DepartNews>getDepartNewsById();
 
     void addDepartment(Department department);

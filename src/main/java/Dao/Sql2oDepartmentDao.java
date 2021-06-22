@@ -13,19 +13,19 @@ import java.util.stream.Collectors;
 
 public class Sql2oDepartmentDao implements DepartmentDao{
     private final Sql2o sql2o;
-    private final Sql2oUserDao userDao;
+//    private final Sql2oUserDao userDao;
+//    private final Sql2oUserDao userDao;
 
     public Sql2oDepartmentDao(Sql2o sql2o) {
         this.sql2o = sql2o;
-        this.userDao = new Sql2oUserDao(sql2o) {
-            @Override
-            public void updateUser(User user, String name, String role, String position, int departId) {
-
-            }
-        };
+//        this.userDao = new Sql2oUserDao(sql2o);
     }
 
-//    @Override
+    @Override
+    public void updateUser(User user, String name, String role, String position, int departId) {
+
+    }
+    @Override
     public void add(Department department){
         String sql = "INSERT INTO department (id,name,description) VALUES (:id, :name, :description);";
         try (Connection con = sql2o.open()){
@@ -46,13 +46,14 @@ public class Sql2oDepartmentDao implements DepartmentDao{
        }
     }
 
-    @Override
-    public List<User> getDepartUserById() {
-        int id = 0;
-        return userDao.getAllUsers().stream()
-                .filter(user -> user.getDepartId() == id)
-                .collect(Collectors.toList());
-    }
+//    @Override
+//    public List<User> getDepartUserById() {
+//        int id = 0;
+//        return userDao.getAllUsers().stream()
+//                .filter(user -> user.getDepartId() == id)
+//                .collect(Collectors.toList());
+//    }
+
 
     @Override
     public List<DepartNews> getDepartNewsById() {

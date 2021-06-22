@@ -14,12 +14,17 @@ public class Sql2oUserDao implements UserDao {
     public Sql2oUserDao(Sql2o sql2o) {
         this.sql2o = sql2o;
         this.departmentDao = new Sql2oDepartmentDao(sql2o) {
-            @Override
-            public List<User> getDepartUserById() {
-
-                return null;
-            }
+//            @Override
+//            public List<User> getDepartUserById() {
+//                return null;
+//            }
         };
+
+    }
+    @Override
+    public List<User> getDepartUserById() {
+
+        return null;
     }
 
     //    @Override
@@ -96,9 +101,9 @@ public class Sql2oUserDao implements UserDao {
         }
     }
 
-    @Override
-    public List getDepartUserById(int id) {
-        return null;
-    }
+//    @Override
+//    public List getDepartUserById(int id) {
+//        return null;
+//    }
 
 }
