@@ -1,0 +1,2 @@
+Dao/Sql2oUserDaoTest.java
+ Dao.Sql2oUserDaoTest

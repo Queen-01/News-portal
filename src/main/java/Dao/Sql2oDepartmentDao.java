@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 //import interface DepartmentDao;
 
-public abstract class Sql2oDepartmentDao implements DepartmentDao{
+public class Sql2oDepartmentDao implements DepartmentDao{
     private final Sql2o sql2o;
     private final Sql2oUserDao userDao;
 
@@ -44,13 +44,13 @@ public abstract class Sql2oDepartmentDao implements DepartmentDao{
        }
     }
 
-//    @Override
-    public List<User> getDepartUserById(int id) {
+    @Override
+    public List<User> getDepartUserById() {
+        int id = 0;
         return userDao.getAllUsers().stream()
                 .filter(user -> user.getDepartId() == id)
                 .collect(Collectors.toList());
     }
-
 
     @Override
     public List<DepartNews> getDepartNewsById() {

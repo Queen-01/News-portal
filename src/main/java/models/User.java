@@ -46,4 +46,7 @@ public class User {
         return id;
     }
 
+    public String getPosition() {
+        return position;
+    }
 }

@@ -5,7 +5,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.List;
 
-public abstract class Sql2oUserDao implements UserDao {
+public class Sql2oUserDao implements UserDao {
     private final Sql2o sql2o;
     private final  Sql2oDepartmentDao departmentDao;
 
@@ -51,8 +51,8 @@ public abstract class Sql2oUserDao implements UserDao {
         return null;
     }
 
-//    @Override
-    public void update(User user,String name, String role, String position, int departId) {
+    @Override
+    public void updateUser(User user, String name, String role, String position, int departId) {
         String sql = "UPDATE user SET (name,role,position,departId) = :name, :role, :position, :departId WHERE id = :id;";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
@@ -68,7 +68,6 @@ public abstract class Sql2oUserDao implements UserDao {
             user.setDepartId(departId);
         }
     }
-
 
     @Override
     public void deleteById(int id) {
