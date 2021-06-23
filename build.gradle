@@ -1,17 +1,18 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'org.example'
 version '1.0-SNAPSHOT'
-
+mainClassName = 'App'
 repositories {
     mavenCentral()
 }
 
 dependencies {
 //    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     implementation group: 'com.sparkjava', name: 'spark-core', version: '2.5.5'
     implementation "com.sparkjava:spark-template-handlebars:2.5.5"
     implementation 'org.slf4j:slf4j-simple:1.7.21'

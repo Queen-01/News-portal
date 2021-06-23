@@ -19,16 +19,16 @@ public class App {
         ProcessBuilder process = new ProcessBuilder();
 
         Integer port = (process.environment().get("PORT") != null) ?
-                Integer.parseInt(process.environment().get("PORT")):7654;
+                Integer.parseInt(process.environment().get("PORT")):4567;
         port(port);
 
-        String connectionString = "jdbc:h2:~/jadle.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectionString, "", "");
+        String connectionString = "jdbc:postgresql://localhost:4567/news_portal";
+        Sql2o sql2o = new Sql2o(connectionString, "moringa", "access");
 
         departmentDao = new Sql2oDepartmentDao(sql2o);
         userDao = new Sql2oUserDao(sql2o);
         newsDao = new Sql2oNewsDao(sql2o);
-        con = sql2o.open();
+//        con = sql2o.open();
 
         post("/departments/new", "application/json", ((request, response) -> {
             Department department = gson.fromJson(request.body(), Department.class);
@@ -36,6 +36,16 @@ public class App {
             response.status(201);
             response.type("application/json");
             return gson.toJson(department);
+        }));
+        get("/departments", "application/json", ((request, response) -> {
+            response.type("application/json");
+            return gson.toJson(departmentDao.getAllDepart());
+        }));
+        get("/departments/:id", "application/json", ((request, response) -> {
+            response.type("application/json");
+            int departId = Integer.parseInt(request.params("id"));
+            response.type("application/json");
+            return gson.toJson(departmentDao.findDepartById(departId));
         }));
     }
 }

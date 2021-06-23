@@ -1,4 +1,4 @@
-package Dao;
-
-public class Sql2oNewsDaoTest {
-}
+//package Dao;
+//
+//public class Sql2oNewsDaoTest {
+//}

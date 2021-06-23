@@ -6,7 +6,7 @@ public class User {
     public String role;
     public String position;
     public int departId;
-    private String content;
+//    private String content;
 
     public User (int id, String name, String role, String position, int departId) {
         this.id = id;
