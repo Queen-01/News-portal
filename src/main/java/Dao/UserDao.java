@@ -2,7 +2,6 @@ package Dao;
 
 import models.User;
 
-import java.util.Collection;
 import java.util.List;
 
 public interface UserDao {
@@ -10,7 +9,7 @@ public interface UserDao {
 
     List<User>getAllUsers();
     void addUser (User user);
-    User findUserById(int id);
+    int findUserById(int id);
 
     void updateUser(User user, String name, String role, String position, int departId);
 

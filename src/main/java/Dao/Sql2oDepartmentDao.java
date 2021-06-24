@@ -106,4 +106,18 @@ public class Sql2oDepartmentDao implements DepartmentDao {
 
     }
 
+    public List<Department> getDepartmentWithUserCount(){
+        return getAllDepart().stream()
+                .map(dpt->
+                        new Department.DepartmentWithUserCount(
+                                dpt.getId(),
+                                dpt.getName(),
+                                dpt.getDescription(),
+                                getDepartUserById().size()
+                        )).collect(Collectors.toList());
+    }
+
+//    public void setDepartmentWithUserCount(void departmentWithUserCount) {
+//        this.departmentWithUserCount = departmentWithUserCount;
+//    }
 }

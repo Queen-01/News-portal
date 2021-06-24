@@ -1,5 +1,6 @@
 package Dao;
 
+import models.Department;
 import models.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -54,8 +55,16 @@ public class Sql2oUserDao implements UserDao {
     }
 
     @Override
-    public User findUserById(int id) {
-        return null;
+    public int findUserById(int id) {
+        String sql = "SELECT * FROM users WHERE id = :id";
+        try (Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(Department.class);
+
+        }
+        return id;
     }
 
     @Override
