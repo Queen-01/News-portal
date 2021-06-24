@@ -17,5 +17,5 @@ public interface UserDao {
     void deleteById(int id);
     void clearAll();
 
-//    List getDepartUserById(int id);
+    List getDepartUserById(int id);
 }

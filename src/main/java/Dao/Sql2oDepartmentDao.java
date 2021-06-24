@@ -6,19 +6,20 @@ import models.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 //import interface DepartmentDao;
 
-public class Sql2oDepartmentDao implements DepartmentDao{
+public class Sql2oDepartmentDao implements DepartmentDao {
     private final Sql2o sql2o;
-//    private final Sql2oUserDao userDao;
+    private final Sql2oUserDao userDao;
+    private NewsDao newsDao;
 //    private final Sql2oUserDao userDao;
 
     public Sql2oDepartmentDao(Sql2o sql2o) {
         this.sql2o = sql2o;
-//        this.userDao = new Sql2oUserDao(sql2o);
+        Sql2oDepartmentDao departmentDao = null;
+        this.userDao = new Sql2oUserDao(sql2o, departmentDao);
     }
 
     @Override
@@ -27,7 +28,7 @@ public class Sql2oDepartmentDao implements DepartmentDao{
     }
     @Override
     public void add(Department department){
-        String sql = "INSERT INTO department (id,name,description) VALUES (:id, :name, :description);";
+        String sql = "INSERT INTO department (name,description) VALUES ( :name, :description);";
         try (Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(department)
@@ -47,17 +48,20 @@ public class Sql2oDepartmentDao implements DepartmentDao{
     }
 
 //    @Override
-//    public List<User> getDepartUserById() {
-//        int id = 0;
-//        return userDao.getAllUsers().stream()
-//                .filter(user -> user.getDepartId() == id)
-//                .collect(Collectors.toList());
-//    }
+    public List<User> getDepartUserById() {
+        int id = 0;
+        return userDao.getAllUsers().stream()
+                .filter(user -> user.getDepartId() == id)
+                .collect(Collectors.toList());
+    }
 
 
     @Override
     public List<DepartNews> getDepartNewsById() {
-        return null;
+        int id = 0;
+        return newsDao.getDepartNews().stream()
+                .filter(department->department.getDepartId()==id)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -66,8 +70,16 @@ public class Sql2oDepartmentDao implements DepartmentDao{
     }
 
     @Override
-    public Department findDepartById(int id) {
-        return null;
+    public int findDepartById(int id) {
+        String sql = "SELECT * FROM department WHERE id = :id";
+        try (Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(Department.class);
+
+        }
+        return id;
     }
 
     @Override

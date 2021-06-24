@@ -12,11 +12,11 @@ public interface DepartmentDao {
     void add(Department department);
 
     List<Department>getAllDepart();
-//    List<User>getDepartUserById();
+    List<User>getDepartUserById();
     List<DepartNews>getDepartNewsById();
 
     void addDepartment(Department department);
-    Department findDepartById(int id);
+    int findDepartById(int id);
     void updateDepartment(Department department, String name, String description);
 
     void deleteById(int id);

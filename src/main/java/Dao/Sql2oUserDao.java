@@ -4,23 +4,22 @@ import models.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-import java.util.Collection;
 import java.util.List;
 
 public class Sql2oUserDao implements UserDao {
     private final Sql2o sql2o;
     private final  Sql2oDepartmentDao departmentDao;
 
-    public Sql2oUserDao(Sql2o sql2o) {
+    public Sql2oUserDao(Sql2o sql2o, Sql2oDepartmentDao departmentDao) {
         this.sql2o = sql2o;
-        this.departmentDao = new Sql2oDepartmentDao(sql2o) {
+//        this.departmentDao = new Sql2oDepartmentDao(sql2o) {
 //            @Override
 //            public List<User> getDepartUserById() {
 //                return null;
 //            }
-        };
+        this.departmentDao = departmentDao;
+    };
 
-    }
     @Override
     public List<User> getDepartUserById() {
 
@@ -101,9 +100,9 @@ public class Sql2oUserDao implements UserDao {
         }
     }
 
-//    @Override
-//    public List getDepartUserById(int id) {
-//        return null;
-//    }
+    @Override
+    public List getDepartUserById(int id) {
+        return null;
+    }
 
 }
