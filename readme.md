@@ -43,7 +43,7 @@ The API routes;
 - GET "/departments/:id/users"
 - GET "/departments/:id/news"
 - GET "/news"
-- GET "/news/general"
+- GET "/news/main"
 - GET "/news/department"
 
 - POST "/Users/new"
@@ -60,4 +60,4 @@ The API routes;
 - Postgres
 - Sql2o
 ## License
-This project is licensed under the MIT Open Source license.
+This project is licensed under the MIT (License) Open Source license.
