@@ -33,3 +33,31 @@ The application has four model classes;
 DepartmentNews inherits from News.
 In the database, model User maps to table users, model Department maps to table departments while model
 News and model DepartmentNews map to one table news through single table inheritance.
+
+The API routes;
+
+- GET "/users"
+- GET "/departments"
+- GET "/users/:id"
+- GET "/departments/:id"
+- GET "/departments/:id/users"
+- GET "/departments/:id/news"
+- GET "/news"
+- GET "/news/general"
+- GET "/news/department"
+
+- POST "/Users/new"
+- POST "/Departments/new"
+- POST "/News/new"
+- POST "/DepartmentNews/new"
+## Technology used
+- Java
+- SparkJava
+- Gradle
+- JUnit 4
+- GitHub
+- IntelliJ IDEA Community Edition
+- Postgres
+- Sql2o
+## License
+This project is licensed under the MIT Open Source license.
