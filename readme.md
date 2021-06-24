@@ -60,4 +60,4 @@ The API routes;
 - Postgres
 - Sql2o
 ## License
-This project is licensed under the MIT (License) Open Source license.
+This project is licensed under the [MIT] (License) Open Source license.
